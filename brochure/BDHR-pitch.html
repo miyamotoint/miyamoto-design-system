@@ -1,0 +1,1284 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="BDHR Pitch Brochure" subtitle="7-page pitch brochure — 4 spreads" viewport="1760x4600" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Miyamoto — American Engineering Leadership in Global Disaster &amp; Humanitarian Response</title>
+<meta name="viewport" content="width=1760" />
+<link rel="stylesheet" href="../tokens.css" />
+<link rel="stylesheet" href="brochure.css" />
+<style>
+  /* ═══════════════════════════════════════════════════════════
+     PAGE-SPECIFIC STYLES (brochure layer)
+     ═══════════════════════════════════════════════════════════ */
+
+  /* ── p.1 COVER ────────────────────────────────────────────── */
+  .cover {
+    position: relative;
+    background: var(--mi-ink);
+    color: #F5F3EE;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+  }
+  .cover .folio { padding: 36px 56px 0; color: rgba(245,243,238,0.55); }
+  .cover .folio .wordmark { color: #F5F3EE; }
+
+  .cover__plate {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .cover__plate svg { width: 100%; height: 100%; display: block; }
+  .cover__plate::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(10,10,10,0.55) 0%,
+        rgba(10,10,10,0.15) 35%,
+        rgba(10,10,10,0.20) 55%,
+        rgba(10,10,10,0.85) 100%);
+  }
+  .cover__inner {
+    position: relative;
+    z-index: 1;
+    padding: 56px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+  }
+  .cover__topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: rgba(245,243,238,0.6);
+  }
+  .cover__topline .wordmark {
+    color: #F5F3EE;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    font-size: 14px;
+  }
+  .cover__topline .wordmark::after { content: "."; color: var(--mi-blue); }
+  .cover h1 {
+    align-self: end;
+    font-family: var(--font-sans);
+    font-size: 56px;
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    font-weight: var(--w-regular);
+    color: #F5F3EE;
+    max-width: 15ch;
+  }
+  .cover h1 em { font-style: normal; color: var(--mi-blue); }
+  .cover__subtitle {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    color: rgba(245,243,238,0.8);
+    margin-top: 22px;
+    max-width: 34ch;
+    line-height: 1.4;
+    font-weight: var(--w-light);
+    letter-spacing: -0.005em;
+  }
+  .cover__foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 14px;
+    border-top: 1px solid rgba(245,243,238,0.18);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: rgba(245,243,238,0.6);
+  }
+  .cover__stamp {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+  }
+
+  /* ── p.2 WHAT WE DO ──────────────────────────────────────── */
+  .pg-do { grid-template-rows: auto auto 1fr auto; gap: 28px; }
+  .pg-do__head { display: grid; gap: 12px; margin-top: 8px; }
+  .pg-do__head h2 {
+    font-size: 46px;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+    max-width: 16ch;
+  }
+  .pg-do__head h2 em { font-style: normal; color: var(--mi-blue); }
+
+  .pg-do__body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 44ch;
+    padding-top: 20px;
+    border-top: var(--hairline);
+  }
+
+  .pg-do__map {
+    margin-top: auto;
+    position: relative;
+    background: var(--mi-chalk);
+    border: var(--hairline);
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 18px;
+    align-items: center;
+  }
+  .pg-do__map svg { width: 100%; height: auto; display: block; }
+  .pg-do__map .legend {
+    display: grid;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-2);
+  }
+  .pg-do__map .legend .row { display: flex; align-items: center; gap: 10px; }
+  .pg-do__map .legend .dot { width: 8px; height: 8px; background: var(--mi-blue); border-radius: 50%; }
+  .pg-do__map .legend .dot--hollow { background: transparent; border: 1px solid var(--mi-ink); }
+  .pg-do__map .title-row {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+    padding-bottom: 10px;
+    border-bottom: var(--hairline);
+  }
+  .pg-do__map .title-row strong { color: var(--fg-1); font-weight: var(--w-medium); }
+
+  /* ── p.3 WHAT WE'VE PROVEN ───────────────────────────────── */
+  .pg-proven { grid-template-rows: auto auto 1fr auto; gap: 26px; }
+  .pg-proven__head { margin-top: 8px; display: grid; gap: 10px; }
+  .pg-proven__head h2 {
+    font-size: 46px;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+    max-width: 14ch;
+  }
+  .pg-proven__head h2 em { font-style: normal; color: var(--mi-blue); }
+  .pg-proven__lede {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--fg-2);
+    max-width: 42ch;
+    padding-top: 16px;
+    border-top: var(--hairline);
+  }
+
+  .pg-proven__record {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--mi-ink);
+    border-bottom: 1px solid var(--mi-ink);
+  }
+  .pg-proven__record .n {
+    font-family: var(--font-sans);
+    font-size: 52px;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--mi-blue);
+    font-weight: var(--w-regular);
+  }
+  .pg-proven__record .lbl {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-2);
+    margin-top: 8px;
+  }
+  .pg-proven__record .regions {
+    grid-column: 1 / -1;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+    padding-top: 12px;
+    border-top: var(--hairline);
+    margin-top: 4px;
+  }
+  .pg-proven__record .regions .extra { color: var(--fg-3); }
+
+  .pg-proven__dossiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+  }
+  .pg-proven__dossier { padding-right: 0; }
+  .pg-proven__dossier + .pg-proven__dossier {
+    padding-left: 24px;
+    border-left: var(--hairline);
+  }
+  .pg-proven__dossier h3 {
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--fg-1);
+  }
+  .pg-proven__dossier .sub {
+    margin-top: 6px;
+    font-family: var(--font-sans);
+    font-size: 9.5px;
+    font-weight: var(--w-medium);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .pg-proven__dossier p {
+    margin: 14px 0 0;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--fg-1);
+  }
+  .pg-proven__dossier p strong { font-weight: var(--w-medium); }
+  .pg-proven__dossier .keystat {
+    margin-top: 14px;
+    font-family: var(--font-sans);
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--mi-blue);
+  }
+  .pg-proven__dossier .keystat .sub {
+    color: var(--fg-3);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .pg-proven__tagline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 18px;
+    border-top: 1px solid var(--mi-ink);
+  }
+  .pg-proven__tagline .line {
+    font-family: var(--font-sans);
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .pg-proven__tagline .line b { font-weight: var(--w-medium); }
+  .pg-proven__tagline .label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+  }
+
+  /* ── p.4 WHAT MAKES US UNIQUE ────────────────────────────── */
+  .pg-unique {
+    position: relative;
+    grid-template-rows: auto auto 1fr;
+    gap: 22px;
+    overflow: hidden;
+  }
+  .pg-unique::before {
+    /* faint stars-and-stripes watermark — abstract, Miyamoto blue */
+    content: "";
+    position: absolute;
+    right: -80px;
+    top: 60px;
+    width: 380px;
+    height: 380px;
+    background:
+      repeating-linear-gradient(0deg,
+        rgba(0,145,204,0.035) 0 18px,
+        transparent 18px 36px);
+    -webkit-mask: radial-gradient(circle at 70% 30%, #000 0%, #000 55%, transparent 80%);
+            mask: radial-gradient(circle at 70% 30%, #000 0%, #000 55%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .pg-unique::after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 80px;
+    width: 130px;
+    height: 130px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(0,145,204,0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .pg-unique > * { position: relative; z-index: 1; }
+
+  .pg-unique__head { margin-top: 8px; display: grid; gap: 10px; }
+  .pg-unique__head h2 {
+    font-size: 42px;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+    max-width: 18ch;
+  }
+  .pg-unique__head h2 em { font-style: normal; color: var(--mi-blue); }
+
+  .pg-unique__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-top: 18px;
+    border-top: var(--hairline);
+  }
+  .unique-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 22px;
+    padding: 16px 0;
+    border-bottom: var(--hairline);
+  }
+  .unique-row:last-child { border-bottom: none; }
+  .unique-row .letter {
+    font-family: var(--font-sans);
+    font-size: 40px;
+    color: var(--mi-blue);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .unique-row h3 {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    letter-spacing: -0.012em;
+    font-weight: var(--w-medium);
+    color: var(--fg-1);
+    line-height: 1.25;
+  }
+  .unique-row ul {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 5px;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--fg-1);
+  }
+  .unique-row ul li {
+    padding-left: 14px;
+    position: relative;
+  }
+  .unique-row ul li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.65em;
+    width: 6px; height: 1px;
+    background: var(--mi-blue);
+  }
+  .unique-row .closer {
+    margin-top: 10px;
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    font-weight: var(--w-medium);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+  }
+
+  /* ── p.5 / p.6 OPTIONS ───────────────────────────────────── */
+  .pg-opt {
+    grid-template-rows: auto auto 1fr auto;
+    gap: 22px;
+  }
+  .pg-opt__head {
+    display: grid;
+    gap: 8px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--mi-ink);
+  }
+  .pg-opt__tag {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+  }
+  .pg-opt__tag .n {
+    font-family: var(--font-sans);
+    font-size: 48px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--mi-blue);
+  }
+  .pg-opt__head h2 {
+    font-size: 38px;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    margin-top: 6px;
+    max-width: 18ch;
+  }
+  .pg-opt__head h2 em { font-style: normal; color: var(--mi-blue); }
+
+  .pg-opt__budget {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .pg-opt__budget .n {
+    font-family: var(--font-sans);
+    font-size: 40px;
+    letter-spacing: -0.022em;
+    line-height: 1;
+    color: var(--fg-1);
+    font-weight: var(--w-regular);
+  }
+  .pg-opt__budget .label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+    line-height: 1.6;
+  }
+  .pg-opt__budget .label strong { color: var(--fg-1); font-weight: var(--w-medium); display: block; }
+
+  .pg-opt__bullets {
+    padding-top: 16px;
+    border-top: var(--hairline);
+    display: grid;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fg-1);
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  .pg-opt__bullets li {
+    padding: 0 0 10px 18px;
+    border-bottom: var(--hairline);
+    position: relative;
+  }
+  .pg-opt__bullets li:last-child { border-bottom: none; padding-bottom: 0; }
+  .pg-opt__bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 10px;
+    width: 8px; height: 1px;
+    background: var(--mi-blue);
+  }
+
+  .pg-opt__outcome {
+    background: var(--mi-ink);
+    color: #F5F3EE;
+    padding: 24px 24px 26px;
+    display: grid;
+    gap: 10px;
+  }
+  .pg-opt__outcome .label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+  }
+  .pg-opt__outcome p {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #F5F3EE;
+    margin: 0;
+    max-width: 44ch;
+  }
+  .pg-opt__outcome p strong { font-weight: var(--w-medium); color: #fff; }
+
+  /* Timeline on p.5 */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding-top: 18px;
+    border-top: var(--hairline);
+  }
+  .timeline__cell {
+    padding: 0 14px 0 0;
+    border-right: var(--hairline);
+    position: relative;
+  }
+  .timeline__cell:last-child { border-right: none; }
+  .timeline__cell + .timeline__cell { padding-left: 14px; }
+  .timeline__cell .q {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+  }
+  .timeline__cell::before {
+    content: "";
+    display: block;
+    height: 3px;
+    background: var(--mi-blue);
+    width: 18px;
+    margin-bottom: 10px;
+  }
+  .timeline__cell .text {
+    font-family: var(--font-body);
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--fg-1);
+    margin-top: 6px;
+  }
+
+  /* Network diagram on p.6 */
+  .network {
+    padding-top: 18px;
+    border-top: var(--hairline);
+  }
+  .network svg { width: 100%; height: auto; display: block; }
+  .network__legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 12px;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-2);
+  }
+  .network__legend .row { display: flex; align-items: center; gap: 8px; }
+  .network__legend .sw { width: 10px; height: 10px; border-radius: 50%; background: var(--mi-blue); }
+  .network__legend .sw--ring { background: transparent; border: 1px solid var(--mi-blue); }
+  .network__legend .sw--ink { background: var(--mi-ink); border-radius: 0; }
+
+  /* ── p.7 VISION + CONTACT (full spread) ──────────────────── */
+  .pg-vision {
+    grid-column: 1 / -1;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .pg-vision__L {
+    padding: 80px 88px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 30px;
+  }
+  .pg-vision__L h2 {
+    margin-top: 16px;
+    font-size: 88px;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    max-width: 10ch;
+  }
+  .pg-vision__L h2 em { font-style: normal; color: var(--mi-blue); }
+  .pg-vision__L .vision-list {
+    align-self: center;
+    display: grid;
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .pg-vision__L .vision-list .item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    padding-top: 14px;
+    border-top: var(--hairline);
+  }
+  .pg-vision__L .vision-list .item:first-child { border-top: 1px solid var(--mi-ink); }
+  .pg-vision__L .vision-list .n {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+    font-weight: var(--w-medium);
+  }
+  .pg-vision__L .vision-list .text {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.35;
+    color: var(--fg-1);
+    letter-spacing: -0.005em;
+    max-width: 28ch;
+  }
+
+  .pg-vision__R {
+    background: var(--mi-ink);
+    color: #F5F3EE;
+    padding: 80px 88px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pg-vision__R .folio { color: rgba(245,243,238,0.55); }
+  .pg-vision__R .folio .wordmark { color: #F5F3EE; }
+  .pg-vision__R .quote {
+    align-self: center;
+    font-family: var(--font-sans);
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #F5F3EE;
+    font-weight: var(--w-regular);
+    max-width: 16ch;
+    font-style: italic;
+  }
+  .pg-vision__R .quote em { font-style: normal; color: var(--mi-blue); }
+  .pg-vision__R .quote::before {
+    content: "“";
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 96px;
+    line-height: 0.6;
+    color: var(--mi-blue);
+    margin-bottom: 16px;
+    font-style: normal;
+  }
+  .pg-vision__R .quote__attr {
+    margin-top: 28px;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: rgba(245,243,238,0.6);
+    font-style: normal;
+  }
+
+  .pg-vision__cta {
+    padding-top: 24px;
+    border-top: 1px solid rgba(245,243,238,0.2);
+    display: grid;
+    gap: 18px;
+  }
+  .pg-vision__cta .label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--mi-blue);
+  }
+  .pg-vision__cta h3 {
+    font-family: var(--font-sans);
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    color: #F5F3EE;
+    font-weight: var(--w-regular);
+    max-width: 22ch;
+  }
+  .pg-vision__cta .rows {
+    display: grid;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: rgba(245,243,238,0.7);
+    line-height: 1.6;
+  }
+  .pg-vision__cta .rows .line {
+    display: flex; justify-content: space-between; gap: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(245,243,238,0.12);
+  }
+  .pg-vision__cta .rows .line strong { color: #F5F3EE; font-weight: var(--w-medium); }
+
+</style>
+</head>
+<body>
+
+  <!-- ══════════════════════ SPREAD 1 ══════════════════════ -->
+  <section class="spread" data-screen-label="Spread 1 — Cover + What We Do">
+
+    <!-- p.1 COVER -->
+    <article class="page cover" data-screen-label="01 Cover">
+      <div class="cover__plate" aria-hidden="true">
+        <svg viewBox="0 0 850 1100" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2F2C2A"/>
+              <stop offset="1" stop-color="#0F0E0D"/>
+            </linearGradient>
+          </defs>
+          <rect width="850" height="1100" fill="url(#sky1)"/>
+
+          <!-- distant mountains / horizon -->
+          <g fill="#1A1917" opacity="0.8">
+            <polygon points="0,620 120,540 240,580 380,480 520,540 680,460 850,520 850,720 0,720"/>
+          </g>
+
+          <!-- mid-ground buildings, reconstructed -->
+          <g fill="#0A0A0A">
+            <rect x="50"  y="560" width="100" height="200"/>
+            <rect x="180" y="510" width="120" height="250"/>
+            <rect x="330" y="580" width="80"  height="180"/>
+            <rect x="430" y="470" width="140" height="290"/>
+            <rect x="600" y="530" width="100" height="230"/>
+            <rect x="720" y="580" width="100" height="180"/>
+          </g>
+          <g stroke="#F5F3EE" stroke-width="0.5" opacity="0.25">
+            <line x1="180" y1="540" x2="300" y2="540"/>
+            <line x1="180" y1="580" x2="300" y2="580"/>
+            <line x1="180" y1="620" x2="300" y2="620"/>
+            <line x1="180" y1="660" x2="300" y2="660"/>
+            <line x1="180" y1="700" x2="300" y2="700"/>
+            <line x1="430" y1="500" x2="570" y2="500"/>
+            <line x1="430" y1="540" x2="570" y2="540"/>
+            <line x1="430" y1="580" x2="570" y2="580"/>
+            <line x1="430" y1="620" x2="570" y2="620"/>
+            <line x1="430" y1="660" x2="570" y2="660"/>
+            <line x1="430" y1="700" x2="570" y2="700"/>
+          </g>
+
+          <!-- foreground street / rubble cleared -->
+          <rect x="0" y="760" width="850" height="340" fill="#0A0A0A"/>
+
+          <!-- field figures (engineers + locals, silhouetted) -->
+          <g fill="#5A544D" opacity="0.9">
+            <!-- fig 1 -->
+            <circle cx="210" cy="860" r="7"/>
+            <rect x="206" y="867" width="8" height="36"/>
+            <!-- fig 2 -->
+            <circle cx="236" cy="870" r="6"/>
+            <rect x="232" y="876" width="8" height="30"/>
+            <!-- fig 3 -->
+            <circle cx="470" cy="855" r="8"/>
+            <rect x="465" y="863" width="10" height="42"/>
+            <!-- fig 4 -->
+            <circle cx="498" cy="868" r="6"/>
+            <rect x="494" y="874" width="8" height="32"/>
+            <!-- fig 5 -->
+            <circle cx="662" cy="862" r="7"/>
+            <rect x="658" y="869" width="8" height="36"/>
+          </g>
+
+          <!-- accent beacon / marker -->
+          <circle cx="500" cy="460" r="5" fill="#0091CC"/>
+          <line x1="500" y1="465" x2="500" y2="540" stroke="#0091CC" stroke-width="0.7" opacity="0.55"/>
+        </svg>
+      </div>
+
+      <div class="cover__inner">
+        <div class="cover__topline">
+          <span class="wordmark">miyamoto</span>
+          <span>Capability Brief — BDHR · 2026</span>
+        </div>
+
+        <div style="align-self:end;">
+          <span class="cover__stamp">Bureau of Disaster &amp; Humanitarian Response — Pitch</span>
+          <h1>American engineering leadership in global disaster &amp; <em>humanitarian response</em><span class="blue-dot">.</span></h1>
+          <p class="cover__subtitle">A private-sector model for speed, scale, and impact.</p>
+        </div>
+
+        <div class="cover__foot">
+          <span>Miyamoto International</span>
+          <span>Confidential — for review</span>
+          <span>01 / 07</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- p.2 WHAT WE DO -->
+    <article class="page page--R pg-do" data-screen-label="02 What we do">
+      <div class="folio">
+        <span>What we do</span>
+        <span class="wordmark">miyamoto</span>
+        <span class="num">02</span>
+      </div>
+
+      <div class="pg-do__head">
+        <span class="lockup__eyebrow">Section 01 — Capability</span>
+        <h2>An American engineering and <em>disaster response</em> company<span class="blue-dot">.</span></h2>
+      </div>
+
+      <div class="pg-do__body">
+        <p class="prose prose--lg">
+          We are an American global engineering and disaster response company with <strong>award-winning U.S. technical capability</strong> and a proven record of delivering for the United States at home and abroad.
+        </p>
+        <p class="prose">
+          We assess, secure, and restore essential systems — <strong>transportation networks, food and water supply chains, emergency access routes, housing, healthcare facilities, and first-responder infrastructure</strong> — ensuring speed, efficiency, and scale.
+        </p>
+        <p class="prose">
+          Our approach delivers immediate, life-saving impact while leveraging American innovation and private-sector strength.
+        </p>
+        <p class="prose">
+          We do not rely on long subcontracting chains. We deliver through <strong>direct U.S. capability</strong>, supported by local operational knowledge. We establish U.S.-owned companies at the local level to ensure effective, fast, and durable impact.
+        </p>
+      </div>
+
+      <div class="pg-do__map" aria-label="Map of operations">
+        <div class="title-row" style="grid-column: 1 / -1;">
+          <span><strong>Map · operations</strong></span>
+          <span>30 strategic locations · 50+ countries</span>
+        </div>
+
+        <svg viewBox="0 0 760 360" aria-hidden="true">
+          <!-- schematic world map — minimal silhouettes -->
+          <g fill="#D8D4CE" opacity="0.9">
+            <!-- N America -->
+            <path d="M60,90 L170,75 L210,100 L200,150 L160,190 L120,200 L90,180 L70,150 Z"/>
+            <!-- C/S America -->
+            <path d="M170,210 L200,205 L220,240 L210,290 L185,320 L170,300 L160,260 Z"/>
+            <!-- Europe -->
+            <path d="M330,100 L400,95 L420,120 L400,145 L355,150 L335,130 Z"/>
+            <!-- Africa -->
+            <path d="M360,160 L420,155 L445,210 L420,280 L385,295 L360,270 L350,220 Z"/>
+            <!-- M East -->
+            <path d="M430,140 L475,135 L485,170 L460,190 L435,180 Z"/>
+            <!-- S Asia / India -->
+            <path d="M495,170 L540,170 L555,210 L530,235 L500,225 Z"/>
+            <!-- SE Asia / Indonesia -->
+            <path d="M570,215 L620,220 L640,245 L600,260 L575,245 Z"/>
+            <!-- E Asia -->
+            <path d="M600,135 L660,130 L680,170 L640,190 L610,175 Z"/>
+          </g>
+
+          <!-- operation pins — solid = active mission, hollow = partner / office -->
+          <g>
+            <!-- Haiti -->
+            <circle cx="178" cy="215" r="6" fill="#0091CC"/>
+            <text x="178" y="238" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">HAITI</text>
+            <!-- Morocco -->
+            <circle cx="355" cy="175" r="6" fill="#0091CC"/>
+            <text x="355" y="198" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">MOROCCO</text>
+            <!-- Ukraine -->
+            <circle cx="410" cy="120" r="6" fill="#0091CC"/>
+            <text x="410" y="108" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">UKRAINE</text>
+            <!-- Türkiye -->
+            <circle cx="430" cy="140" r="6" fill="#0091CC"/>
+            <text x="440" y="135" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">TÜRKIYE</text>
+            <!-- Gaza -->
+            <circle cx="448" cy="158" r="6" fill="#0091CC"/>
+            <text x="458" y="160" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">GAZA</text>
+            <!-- Afghanistan -->
+            <circle cx="500" cy="158" r="6" fill="#0091CC"/>
+            <text x="510" y="155" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">AFGHANISTAN</text>
+            <!-- Nepal -->
+            <circle cx="528" cy="180" r="6" fill="#0091CC"/>
+            <text x="538" y="178" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">NEPAL</text>
+            <!-- Indonesia -->
+            <circle cx="608" cy="240" r="6" fill="#0091CC"/>
+            <text x="608" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">INDONESIA</text>
+            <!-- Ecuador -->
+            <circle cx="188" cy="250" r="6" fill="#0091CC"/>
+            <text x="180" y="272" font-family="Inter, sans-serif" font-size="8" fill="#1D1D1B" letter-spacing="1.5">ECUADOR</text>
+
+            <!-- hollow hubs (offices / partners) -->
+            <circle cx="120" cy="130" r="5" fill="#FAFAF8" stroke="#1D1D1B" stroke-width="1"/>
+            <circle cx="370" cy="120" r="5" fill="#FAFAF8" stroke="#1D1D1B" stroke-width="1"/>
+            <circle cx="650" cy="155" r="5" fill="#FAFAF8" stroke="#1D1D1B" stroke-width="1"/>
+          </g>
+        </svg>
+
+        <div class="legend">
+          <div class="row"><span class="dot"></span> Active mission</div>
+          <div class="row"><span class="dot dot--hollow"></span> Office / partner hub</div>
+          <div class="row" style="color: var(--fg-3); letter-spacing: 0.08em;">+ dozens more</div>
+        </div>
+      </div>
+
+      <div class="foot-strip">
+        <span>Miyamoto International</span>
+        <span>BDHR · Capability Brief</span>
+        <span class="num">02 / 07</span>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ══════════════════════ SPREAD 2 ══════════════════════ -->
+  <section class="spread" data-screen-label="Spread 2 — Proven + Unique">
+
+    <!-- p.3 WHAT WE'VE ALREADY PROVEN -->
+    <article class="page page--L pg-proven" data-screen-label="03 What we've proven">
+      <div class="folio">
+        <span class="wordmark">miyamoto</span>
+        <span>What we've proven</span>
+        <span class="num">03</span>
+      </div>
+
+      <div class="pg-proven__head">
+        <span class="lockup__eyebrow">Section 02 — Evidence</span>
+        <h2>What we've already <em>proven<span class="blue-dot">.</span></em></h2>
+        <p class="pg-proven__lede">
+          <strong>Speed. Scale. Reliability.</strong> American capability in action. We mobilize at lightning speed and deliver in the most challenging environments.
+        </p>
+      </div>
+
+      <section class="pg-proven__record" aria-label="Global track record">
+        <div>
+          <div class="n">700,000</div>
+          <div class="lbl">Structures assessed</div>
+        </div>
+        <div>
+          <div class="n">50,000</div>
+          <div class="lbl">Repaired or reconstructed</div>
+        </div>
+        <div class="regions">
+          Haiti · Türkiye · Morocco · Afghanistan · Ukraine · Nepal · Ecuador · Indonesia <span class="extra">· + dozens more</span>
+        </div>
+      </section>
+
+      <section class="pg-proven__dossiers">
+        <article class="pg-proven__dossier">
+          <h3>Haiti<span class="blue-dot">.</span></h3>
+          <div class="sub">Grass-roots reach · Konbit</div>
+          <p>
+            Reached <strong>1 million people</strong> through Konbit, a trusted grass-roots organization. Recognized as one of the most trusted <strong>U.S. engineering companies</strong> in the region.
+          </p>
+          <div class="keystat">1M<span class="sub">People reached</span></div>
+        </article>
+
+        <article class="pg-proven__dossier">
+          <h3>Ukraine<span class="blue-dot">.</span></h3>
+          <div class="sub">Active conflict zone</div>
+          <p>
+            One of the <strong>largest engineering operations in an active conflict zone</strong>: 30,000 houses assessed and 20,000 repaired or reconstructed, using U.S. technical systems and engineering standards.
+          </p>
+          <div class="keystat">20,000<span class="sub">Repaired · of 30,000 assessed</span></div>
+        </article>
+
+        <article class="pg-proven__dossier">
+          <h3>Gaza / MENA<span class="blue-dot">.</span></h3>
+          <div class="sub">High-risk environments</div>
+          <p>
+            Proven ability to operate in complex, high-risk environments with <strong>neutrality, precision</strong>, and the professionalism expected of a U.S. private-sector partner.
+          </p>
+          <div class="keystat">—<span class="sub">U.S. private-sector standard</span></div>
+        </article>
+      </section>
+
+      <div class="pg-proven__tagline">
+        <span class="label">Tagline</span>
+        <span class="line">We execute. Fast. <b>At scale<span class="blue-dot">.</span></b></span>
+        <span class="stamp">03 / 07</span>
+      </div>
+    </article>
+
+    <!-- p.4 WHAT MAKES US UNIQUE -->
+    <article class="page page--R pg-unique" data-screen-label="04 What makes us unique">
+      <div class="folio">
+        <span>What makes us unique</span>
+        <span class="wordmark">miyamoto</span>
+        <span class="num">04</span>
+      </div>
+
+      <div class="pg-unique__head">
+        <span class="lockup__eyebrow">Section 03 — Differentiators</span>
+        <h2>What makes us <em>unique<span class="blue-dot">.</span></em></h2>
+      </div>
+
+      <div class="pg-unique__grid">
+        <section class="unique-row">
+          <div class="letter">A</div>
+          <div>
+            <h3>Private-sector strength + U.S. business credibility</h3>
+            <ul>
+              <li>Deep U.S. operational and business credibility</li>
+              <li>Longstanding relationships across Asia, the Americas, and MENA — priority regions for the Administration</li>
+              <li>No sub-to-sub chains; we bring in-house American engineering, systems, and management</li>
+              <li>We establish U.S.-owned companies at the local level to ensure effective, fast, and durable impact</li>
+            </ul>
+            <div class="closer">This is our signature model · No one else delivers this way</div>
+          </div>
+        </section>
+
+        <section class="unique-row">
+          <div class="letter">B</div>
+          <div>
+            <h3>Boots on the ground — real, not symbolic</h3>
+            <ul>
+              <li>Teams deployed within hours, not weeks</li>
+              <li>700,000+ structural assessments across 50 countries</li>
+              <li>Consistent methodology (ATC 20), consistent data, consistent outcomes</li>
+              <li>Aligned with the Administration's push for private-sector-led global response</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="unique-row">
+          <div class="letter">C</div>
+          <div>
+            <h3>AI-powered real-time damage assessment</h3>
+            <ul>
+              <li>World's largest standardized dataset of post-disaster building performance</li>
+              <li>AI that produces instant safety assessments from homeowner-submitted photos</li>
+              <li>Reduces months of work to days or weeks</li>
+              <li>Demonstrates American innovation in disaster management</li>
+            </ul>
+            <div class="closer">No other organization has this dataset · No one else can build this model</div>
+          </div>
+        </section>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ══════════════════════ SPREAD 3 ══════════════════════ -->
+  <section class="spread" data-screen-label="Spread 3 — Options">
+
+    <!-- p.5 OPTION 1 -->
+    <article class="page page--L pg-opt" data-screen-label="05 Option 1">
+      <div class="folio">
+        <span class="wordmark">miyamoto</span>
+        <span>What we can deliver — Option 1</span>
+        <span class="num">05</span>
+      </div>
+
+      <div class="pg-opt__head">
+        <div class="pg-opt__tag">
+          <span class="n">01</span>
+          <span>Option 1 · 1-Year horizon</span>
+        </div>
+        <h2>Immediate impact. Rapid scale-up. <em>High-visibility wins.</em></h2>
+      </div>
+
+      <div class="pg-opt__budget">
+        <div class="n">$50M—$100M</div>
+        <div class="label">
+          <strong>Investment band</strong>
+          1-year horizon · mobilized on signature
+        </div>
+      </div>
+
+      <ul class="pg-opt__bullets">
+        <li>Global AI deployment across priority regions</li>
+        <li>Strengthen American-led engineering hubs in <strong>6–10 countries</strong></li>
+        <li>Rapid response teams positioned across Asia, the Americas, and MENA</li>
+        <li>Real-time global disaster and conflict monitoring</li>
+        <li>Immediate response to Haiti, MENA, and Ukraine</li>
+        <li>High-impact demonstration projects showing what American private-sector capability can deliver in months</li>
+      </ul>
+
+      <div class="timeline">
+        <div class="timeline__cell">
+          <div class="q">Q1</div>
+          <div class="text">Mobilize. Standing teams in 3 theatres; AI platform live.</div>
+        </div>
+        <div class="timeline__cell">
+          <div class="q">Q2</div>
+          <div class="text">Hubs opened in 6 countries; first demonstration projects underway.</div>
+        </div>
+        <div class="timeline__cell">
+          <div class="q">Q3</div>
+          <div class="text">Response to Haiti, MENA, Ukraine; global monitoring online.</div>
+        </div>
+        <div class="timeline__cell">
+          <div class="q">Q4</div>
+          <div class="text">Measurable wins reported. Year-one impact dossier filed.</div>
+        </div>
+      </div>
+
+      <div class="pg-opt__outcome">
+        <span class="label">Outcome</span>
+        <p>
+          A fast-moving, globally visible capability that demonstrates the Administration's commitment to <strong>American innovation and leadership</strong> in crisis response.
+        </p>
+      </div>
+    </article>
+
+    <!-- p.6 OPTION 2 -->
+    <article class="page page--R pg-opt" data-screen-label="06 Option 2">
+      <div class="folio">
+        <span>What we can deliver — Option 2</span>
+        <span class="wordmark">miyamoto</span>
+        <span class="num">06</span>
+      </div>
+
+      <div class="pg-opt__head">
+        <div class="pg-opt__tag">
+          <span class="n">02</span>
+          <span>Option 2 · 3-Year horizon</span>
+        </div>
+        <h2>A permanent, American-led <em>global engineering &amp; response system.</em></h2>
+      </div>
+
+      <div class="pg-opt__budget">
+        <div class="n">$100M—$300M</div>
+        <div class="label">
+          <strong>Investment band</strong>
+          3-year horizon · standing capability
+        </div>
+      </div>
+
+      <ul class="pg-opt__bullets">
+        <li>A fully integrated global disaster-engineering network</li>
+        <li>AI-enabled triage for every major disaster worldwide</li>
+        <li>American-owned enterprise hubs in <strong>20 to 40 countries</strong></li>
+        <li>A standing global response force deployable within <strong>24–48 hours</strong></li>
+        <li>A unified global data platform</li>
+        <li>Cross-sector integration with U.S. humanitarian, governance, and private-sector partners</li>
+        <li>Resilient infrastructure programs aligned with U.S. strategic priorities</li>
+        <li>Immediate response to global hotspots</li>
+      </ul>
+
+      <section class="network">
+        <svg viewBox="0 0 680 180" aria-hidden="true">
+          <!-- center hub -->
+          <g>
+            <circle cx="340" cy="90" r="16" fill="#0091CC"/>
+            <text x="340" y="125" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#1D1D1B" letter-spacing="1.5" font-weight="500">U.S. CORE</text>
+          </g>
+          <!-- regional hubs -->
+          <g>
+            <!-- connectors -->
+            <g stroke="#0091CC" stroke-width="0.8" opacity="0.55" fill="none">
+              <line x1="340" y1="90" x2="90"  y2="50"/>
+              <line x1="340" y1="90" x2="70"  y2="130"/>
+              <line x1="340" y1="90" x2="180" y2="160"/>
+              <line x1="340" y1="90" x2="490" y2="45"/>
+              <line x1="340" y1="90" x2="580" y2="80"/>
+              <line x1="340" y1="90" x2="610" y2="140"/>
+              <line x1="340" y1="90" x2="460" y2="160"/>
+            </g>
+
+            <!-- hubs -->
+            <g fill="#1D1D1B">
+              <circle cx="90"  cy="50"  r="8"/>
+              <circle cx="70"  cy="130" r="8"/>
+              <circle cx="180" cy="160" r="8"/>
+              <circle cx="490" cy="45"  r="8"/>
+              <circle cx="580" cy="80"  r="8"/>
+              <circle cx="610" cy="140" r="8"/>
+              <circle cx="460" cy="160" r="8"/>
+            </g>
+
+            <!-- satellite rings (response force) -->
+            <g fill="none" stroke="#1D1D1B" stroke-width="1">
+              <circle cx="40"  cy="85"  r="5"/>
+              <circle cx="140" cy="30"  r="5"/>
+              <circle cx="260" cy="155" r="5"/>
+              <circle cx="420" cy="30"  r="5"/>
+              <circle cx="560" cy="30"  r="5"/>
+              <circle cx="640" cy="105" r="5"/>
+              <circle cx="520" cy="155" r="5"/>
+              <circle cx="390" cy="160" r="5"/>
+            </g>
+
+            <!-- labels -->
+            <g font-family="Inter, sans-serif" font-size="8" letter-spacing="1.5" fill="#6E6A65">
+              <text x="90"  y="38"  text-anchor="middle">AMERICAS</text>
+              <text x="70"  y="150" text-anchor="middle">L. AMERICA</text>
+              <text x="180" y="178" text-anchor="middle">WEST AFRICA</text>
+              <text x="490" y="32"  text-anchor="middle">E. EUROPE</text>
+              <text x="580" y="68"  text-anchor="middle">MENA</text>
+              <text x="610" y="158" text-anchor="middle">S. ASIA</text>
+              <text x="460" y="178" text-anchor="middle">SE ASIA</text>
+            </g>
+          </g>
+        </svg>
+        <div class="network__legend">
+          <div class="row"><span class="sw"></span> U.S. core</div>
+          <div class="row"><span class="sw sw--ink"></span> Enterprise hub (20–40)</div>
+          <div class="row"><span class="sw sw--ring"></span> Response force · 24–48h</div>
+        </div>
+      </section>
+
+      <div class="pg-opt__outcome">
+        <span class="label">Outcome</span>
+        <p>
+          A global system that reshapes how the world responds to disasters — with <strong>private-sector leadership at the centre</strong>.
+        </p>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ══════════════════════ SPREAD 4 — VISION + CONTACT ══════════════════════ -->
+  <section class="spread" data-screen-label="Spread 4 — Vision + Contact">
+
+    <article class="page pg-vision" data-screen-label="07 Vision &amp; Contact">
+
+      <div class="pg-vision__L">
+        <div class="folio">
+          <span class="wordmark">miyamoto</span>
+          <span>The vision</span>
+          <span class="num">07</span>
+        </div>
+
+        <div>
+          <span class="lockup__eyebrow">Section 05 — The vision</span>
+          <h2>The <em>vision<span class="blue-dot">.</span></em></h2>
+        </div>
+
+        <div class="vision-list">
+          <div class="item">
+            <span class="n">I</span>
+            <span class="text">Communities no longer wait months for safety assessments and recovery.</span>
+          </div>
+          <div class="item">
+            <span class="n">II</span>
+            <span class="text">American engineering and innovation set the global standard.</span>
+          </div>
+          <div class="item">
+            <span class="n">III</span>
+            <span class="text">Private-sector capability drives speed, scale, and impact.</span>
+          </div>
+        </div>
+
+        <div class="foot-strip">
+          <span>Miyamoto International</span>
+          <span>BDHR · Pitch</span>
+          <span class="num">07 / 07</span>
+        </div>
+      </div>
+
+      <aside class="pg-vision__R">
+        <div class="folio">
+          <span>Contact</span>
+          <span class="wordmark">miyamoto</span>
+          <span class="num">—</span>
+        </div>
+
+        <blockquote class="quote">
+          <span>We transform global disaster response through <em>U.S. technological leadership.</em></span>
+          <div class="quote__attr">— Miyamoto International</div>
+        </blockquote>
+
+        <div class="pg-vision__cta">
+          <span class="label">Contact</span>
+          <h3>To open a conversation on BDHR partnership.</h3>
+          <div class="rows">
+            <div class="line"><span>Office</span><span><strong>Miyamoto International</strong></span></div>
+            <div class="line"><span>Desk</span><span>Bureau of Disaster &amp; Humanitarian Response</span></div>
+            <div class="line"><span>Reference</span><span>BDHR / Capability Brief · 2026</span></div>
+          </div>
+        </div>
+      </aside>
+
+    </article>
+
+  </section>
+
+</body>
+</html>

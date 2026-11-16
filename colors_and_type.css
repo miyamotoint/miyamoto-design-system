@@ -1,0 +1,209 @@
+/* ─────────────────────────────────────────────────────────────
+   Miyamoto International — Foundations
+   Editorial studio register. Restraint is the signature.
+   ───────────────────────────────────────────────────────────── */
+
+/* Primary font: Swis721 is the licensed brand face.
+   Google Fonts does not host Swis721 — we substitute Inter,
+   which shares Swiss-grotesque DNA (geometric sans, similar
+   x-height, neutral terminals). FLAG: users who own the
+   Swis721 license should drop the woff2 files into /fonts
+   and replace the `font-family` stack below.                  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ── Brand color (the one accent, used sparingly) ───────── */
+  --mi-blue:         #0091CC;  /* Pantone Process Blue C */
+  --mi-blue-ink:     #007AAD;  /* pressed / hover deepen */
+  --mi-blue-wash:    #E6F4FA;  /* rare tint, sparingly    */
+
+  /* ── Core neutrals (warm, never cool digital gray) ──────── */
+  --mi-ink:          #1D1D1B;  /* Miyamoto Black   */
+  --mi-graphite:     #3F3C3B;  /* Miyamoto Gray    */
+  --mi-stone:        #D8D4CE;  /* hairline / soft border */
+  --mi-chalk:        #ECEBEC;  /* Miyamoto Light Grey */
+  --mi-paper:        #FAFAF8;  /* page surface, never #FFF */
+  --mi-surface:      #FFFFFF;  /* reserved for cards only */
+
+  /* ── Dark-mode tier ─────────────────────────────────────── */
+  --mi-ink-deep:     #0A0A0A;
+  --mi-ink-mid:      #141414;
+  --mi-ink-soft:     #1A1A1A;
+  --mi-border-dark:  #2E2E2E;
+  --mi-body-dark:    #C9C6BF;
+
+  /* ── Semantic foreground ────────────────────────────────── */
+  --fg-1:            var(--mi-ink);      /* primary copy */
+  --fg-2:            var(--mi-graphite); /* secondary    */
+  --fg-3:            #6E6A65;            /* meta / captions */
+  --fg-accent:       var(--mi-blue);
+
+  /* ── Semantic background ────────────────────────────────── */
+  --bg-page:         var(--mi-paper);
+  --bg-surface:      var(--mi-surface);
+  --bg-dark:         var(--mi-ink-mid);
+
+  /* ── Hairlines — never accent color except pull-quote bar ─ */
+  --hairline:        0.5px solid var(--mi-stone);
+  --hairline-dark:   0.5px solid var(--mi-border-dark);
+  --rule-1:          1px   solid var(--mi-stone);
+
+  /* ── Typography stack ───────────────────────────────────── */
+  --font-sans: 'Inter', 'Swis721 BT', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Calibri', 'Helvetica Neue', Arial, sans-serif;
+
+  /* ── Type sizes — three sizes per page, modest spread ──── */
+  --t-micro:     9px;   /* version stamps, page nos.       */
+  --t-caps:     10px;   /* micro-caps section labels       */
+  --t-body:     11px;   /* body copy                       */
+  --t-body-lg:  13px;   /* pull quotes, emphasis           */
+  --t-meta:     11px;
+  --t-subhead:  16px;
+  --t-head:     28px;   /* headline range 26–32            */
+  --t-head-lg:  32px;   /* bookend / cover                 */
+  --t-display:  48px;   /* bookends only                   */
+
+  /* ── Weights — two, period ──────────────────────────────── */
+  --w-light:     300; /* @kind font */   /* decorative metadata only */
+  --w-regular:   400; /* @kind font */
+  --w-medium:    500; /* @kind font */
+
+  /* ── Letter-spacing is a tool ───────────────────────────── */
+  --tr-tight:   -0.01em;
+  --tr-default:  0; /* @kind font */
+  --tr-caps:     0.18em;  /* 0.14–0.22em for micro-caps */
+  --tr-caps-lg:  0.22em;
+
+  /* ── Line height ───────────────────────────────────────── */
+  --lh-head:     1.12; /* @kind font */
+  --lh-body:     1.65; /* @kind font */
+  --lh-prose:    1.75; /* @kind font */
+
+  /* ── Rhythm (rems only; no random px) ──────────────────── */
+  --gap-1:  1rem;
+  --gap-2:  1.5rem;
+  --gap-3:  1.75rem;
+  --gap-4:  2rem;
+  --gap-5:  3rem;
+
+  /* ── Page padding ──────────────────────────────────────── */
+  --pad-page: 40px;
+
+  /* ── Pull-quote accent bar ─────────────────────────────── */
+  --quote-bar-w: 2px;
+
+  /* ── Borders are 0.5px muted; never rounded-everything ─── */
+  --radius-0: 0;
+  --radius-sm: 2px;   /* only where unavoidable */
+}
+
+/* ───────────── Base reset for editorial surfaces ───────────── */
+
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  font-weight: var(--w-regular);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ───────────── Semantic elements ────────────────────────── */
+
+h1, .h1 {
+  font-family: var(--font-sans);
+  font-size: var(--t-head-lg);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-tight);
+  line-height: var(--lh-head);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-family: var(--font-sans);
+  font-size: var(--t-head);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-tight);
+  line-height: var(--lh-head);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h3, .h3 {
+  font-family: var(--font-sans);
+  font-size: var(--t-subhead);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-default);
+  line-height: 1.3;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  font-weight: var(--w-regular);
+  line-height: var(--lh-prose);
+  color: var(--fg-1);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.caps {
+  font-family: var(--font-sans);
+  font-size: var(--t-caps);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  color: var(--fg-1);
+}
+
+.caps--accent { color: var(--fg-accent); }
+.caps--muted  { color: var(--fg-3); }
+
+.meta {
+  font-family: var(--font-sans);
+  font-size: var(--t-micro);
+  font-weight: var(--w-light);
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Trailing dot after headline — signature move */
+.dot::after {
+  content: '.';
+  color: var(--fg-accent);
+  margin-left: 0.02em;
+}
+
+/* Pull quote with vertical accent bar */
+.pull-quote {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: var(--w-medium);
+  font-size: var(--t-body-lg);
+  line-height: 1.55;
+  color: var(--fg-1);
+  padding-left: var(--gap-1);
+  border-left: var(--quote-bar-w) solid var(--fg-accent);
+}
+
+/* Stat — weight 500, tight tracking, never bold */
+.stat {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-tight);
+  line-height: 1;
+  color: var(--fg-1);
+}
+.stat--accent { color: var(--fg-accent); }
+
+.hairline   { border-top: var(--hairline); }
+.hairline-d { border-top: var(--hairline-dark); }
+
+/* Sentence case is the default; keep Title Case off limits. */

@@ -1,0 +1,203 @@
+/* ─────────────────────────────────────────────────────────────
+   BDHR Pitch Brochure — shared composition layer
+   Paper-ground editorial. Extends tokens.css.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Stage / binding ──────────────────────────────────────── */
+html, body { background: #2A2826; }
+body {
+  margin: 0;
+  padding: 48px 20px 96px;
+  font-family: var(--font-body);
+  display: grid;
+  justify-items: center;
+  gap: 56px;
+}
+
+.spread {
+  width: 1700px;
+  height: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--mi-paper);
+  position: relative;
+  box-shadow:
+    0 30px 60px -20px rgba(0,0,0,0.55),
+    0 10px 20px -10px rgba(0,0,0,0.35);
+}
+.spread::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 56px;
+  transform: translateX(-50%);
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(0,0,0,0.03) 30%,
+    rgba(0,0,0,0.085) 50%,
+    rgba(0,0,0,0.03) 70%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.page {
+  position: relative;
+  padding: 80px 88px;
+  display: grid;
+  overflow: hidden;
+}
+.page--L { padding-right: 72px; }
+.page--R { padding-left: 72px; }
+.page--bleed { padding: 0; }
+.page--dark { background: var(--mi-ink); color: #F5F3EE; }
+
+/* ── Folio ────────────────────────────────────────────────── */
+.folio {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-sans);
+  font-size: var(--t-micro);
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.page--dark .folio { color: rgba(245,243,238,0.55); }
+.folio .wordmark {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-size: 13px;
+  color: var(--mi-blue);
+}
+.folio .wordmark::after { content: "."; }
+.folio .num { font-variant-numeric: tabular-nums; }
+
+/* ── Signature dot ────────────────────────────────────────── */
+.blue-dot { color: var(--mi-blue); }
+
+/* ── Shared headline scale ────────────────────────────────── */
+h1, h2, h3, h4 { margin: 0; font-weight: var(--w-regular); font-family: var(--font-sans); }
+.dpy-xl {
+  font-size: 104px;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+.dpy-lg {
+  font-size: 72px;
+  line-height: 1.0;
+  letter-spacing: -0.028em;
+}
+.dpy-md {
+  font-size: 48px;
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+}
+.dpy-sm {
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+}
+
+.caps-accent { color: var(--mi-blue); }
+.caps-muted  { color: var(--fg-3); }
+
+.rule-ink { border-top: 1px solid var(--mi-ink); }
+.rule-hair { border-top: var(--hairline); }
+
+/* ── Body copy (editorial) ────────────────────────────────── */
+.prose {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-1);
+  max-width: 34ch;
+}
+.prose + .prose { margin-top: 12px; }
+.prose strong { font-weight: var(--w-medium); }
+.prose--lg {
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 30ch;
+}
+
+/* ── Meta stamp ───────────────────────────────────────────── */
+.stamp {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  line-height: 1.75;
+}
+
+/* ── Lockup (numbered section) ────────────────────────────── */
+.lockup {
+  display: grid;
+  gap: 14px;
+}
+.lockup__num {
+  font-family: var(--font-sans);
+  font-size: 72px;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  color: var(--mi-blue);
+  font-weight: var(--w-regular);
+}
+.lockup__eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--t-caps);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  color: var(--mi-blue);
+}
+
+/* ── Foot strip ───────────────────────────────────────────── */
+.foot-strip {
+  padding-top: 16px;
+  border-top: var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-sans);
+  font-size: var(--t-micro);
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* ── Placeholder plates ──────────────────────────────────── */
+.plate {
+  position: relative;
+  background: #3F3C3B;
+  overflow: hidden;
+  color: #F5F3EE;
+}
+.plate svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.plate__ph {
+  position: absolute;
+  top: 18px; right: 18px;
+  color: rgba(245,243,238,0.55);
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+}
+.plate__cap {
+  position: absolute;
+  left: 20px; bottom: 18px; right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  line-height: 1.7;
+  gap: 20px;
+}
+.plate__cap .sub { opacity: 0.65; }
+.plate__cap .accent { color: var(--mi-blue); }

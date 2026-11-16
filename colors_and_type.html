@@ -1,0 +1,494 @@
+<!doctype html>
+<!-- @dsCard group="Type" name="colors_and_type.css" subtitle="Specimen page — colors & type tokens rendered" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Miyamoto — Colors & Type</title>
+<meta name="viewport" content="width=1200" />
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* ── Specimen chrome only — tokens drive everything else ── */
+  body {
+    margin: 0;
+    padding: 56px 64px 96px;
+    max-width: 1200px;
+  }
+  .sheet-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--gap-2);
+    padding-bottom: var(--gap-2);
+    border-bottom: var(--rule-1);
+    margin-bottom: var(--gap-5);
+  }
+  .sheet-head .eyebrow {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .sheet-head h1 {
+    font-size: 44px;
+    font-weight: var(--w-regular);
+    letter-spacing: -0.015em;
+  }
+  .sheet-head .stamp {
+    text-align: right;
+    font-family: var(--font-sans);
+    font-size: var(--t-micro);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+    line-height: 1.8;
+  }
+
+  section + section { margin-top: 72px; }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--gap-3);
+    align-items: baseline;
+    padding-bottom: var(--gap-1);
+    border-bottom: var(--hairline);
+    margin-bottom: var(--gap-4);
+  }
+  .section-head .num {
+    font-family: var(--font-sans);
+    font-size: var(--t-caps);
+    font-weight: var(--w-medium);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-accent);
+  }
+  .section-head h2 {
+    font-size: 22px;
+    font-weight: var(--w-regular);
+    letter-spacing: -0.005em;
+  }
+  .section-head .lede {
+    grid-column: 2;
+    margin-top: 6px;
+    color: var(--fg-2);
+    max-width: 62ch;
+    font-size: 12px;
+  }
+
+  /* ── Color grid ────────────────────────────────────────── */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: var(--hairline);
+    border-left: var(--hairline);
+  }
+  .sw {
+    border-right: var(--hairline);
+    border-bottom: var(--hairline);
+    padding: 0;
+  }
+  .sw__chip {
+    height: 150px;
+    position: relative;
+  }
+  .sw__chip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.06);
+    pointer-events: none;
+  }
+  .sw__meta {
+    padding: 14px 16px 18px;
+    display: grid;
+    gap: 4px;
+  }
+  .sw__name {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: var(--w-medium);
+    color: var(--fg-1);
+  }
+  .sw__tok,
+  .sw__hex {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10px;
+    color: var(--fg-3);
+    letter-spacing: 0.02em;
+  }
+  .sw--pale .sw__chip { outline: 0.5px solid var(--mi-stone); outline-offset: -0.5px; }
+
+  /* Secondary row with only two: accent depths */
+  .swatches--accent { grid-template-columns: repeat(3, 1fr); }
+
+  /* Dark tier */
+  .swatches--dark { grid-template-columns: repeat(5, 1fr); }
+
+  /* ── Type specimens ────────────────────────────────────── */
+  .type-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    gap: var(--gap-3);
+    padding: 22px 0;
+    border-bottom: var(--hairline);
+    align-items: baseline;
+  }
+  .type-row:first-of-type { border-top: var(--hairline); }
+  .type-row .label {
+    font-family: var(--font-sans);
+    font-size: var(--t-caps);
+    font-weight: var(--w-medium);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .type-row .specs {
+    text-align: right;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10px;
+    color: var(--fg-3);
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+  }
+  .type-row .specs span { display: block; }
+
+  .display-xl {
+    font-family: var(--font-sans);
+    font-size: 72px;
+    font-weight: var(--w-regular);
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+  }
+  .display-sm {
+    font-family: var(--font-sans);
+    font-size: var(--t-display);
+    font-weight: var(--w-regular);
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+  }
+
+  /* ── Mixed applications / composition ──────────────────── */
+  .apps {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--gap-4);
+    margin-top: var(--gap-2);
+  }
+  .app {
+    background: var(--bg-surface);
+    border: var(--hairline);
+    padding: 32px;
+  }
+  .app--dark {
+    background: var(--bg-dark);
+    border: var(--hairline-dark);
+    color: var(--mi-body-dark);
+  }
+  .app--dark .caps { color: var(--mi-body-dark); opacity: 0.7; }
+  .app--dark h3 { color: #F5F3EE; }
+  .app--dark .pull-quote { color: #F5F3EE; }
+  .app__eyebrow { display:block; margin-bottom: 18px; }
+  .app h3 { margin-bottom: 10px; font-size: 20px; }
+  .app p + p { margin-top: 10px; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-3);
+    margin-top: var(--gap-4);
+    padding-top: var(--gap-3);
+    border-top: var(--hairline);
+  }
+  .stats .caps { color: var(--fg-3); margin-top: 8px; }
+
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-4);
+    margin-top: var(--gap-2);
+  }
+
+  /* ── Foot rule ─────────────────────────────────────────── */
+  .foot {
+    margin-top: 96px;
+    padding-top: var(--gap-1);
+    border-top: var(--rule-1);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--t-micro);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .foot .center { text-align: center; color: var(--fg-1); }
+  .foot .right  { text-align: right; }
+</style>
+</head>
+<body>
+
+  <header class="sheet-head">
+    <div>
+      <span class="caps caps--accent eyebrow">Miyamoto International — Foundations</span>
+      <h1 class="dot">Colors &amp; Type</h1>
+    </div>
+    <div class="stamp">
+      <div>Specimen</div>
+      <div>v1.0 · Apr 2026</div>
+      <div>File · colors_and_type</div>
+    </div>
+  </header>
+
+  <!-- ─────────────────────────── COLOR ─────────────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="num">01 — Color</span>
+      <h2>Restraint is the signature.</h2>
+      <p class="lede">One accent, warm neutrals, paper over white. The blue appears sparingly — on a rule, a quote bar, a single word. Cool digital grays are avoided.</p>
+    </div>
+
+    <span class="caps caps--muted" style="display:block; margin-bottom:12px;">Accent</span>
+    <div class="swatches swatches--accent">
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-blue);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Miyamoto Blue</span>
+          <span class="sw__tok">--mi-blue</span>
+          <span class="sw__hex">#0091CC · Pantone Process Blue C</span>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-blue-ink);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Blue Ink</span>
+          <span class="sw__tok">--mi-blue-ink</span>
+          <span class="sw__hex">#007AAD · pressed / hover</span>
+        </div>
+      </div>
+      <div class="sw sw--pale">
+        <div class="sw__chip" style="background: var(--mi-blue-wash);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Blue Wash</span>
+          <span class="sw__tok">--mi-blue-wash</span>
+          <span class="sw__hex">#E6F4FA · rare tint</span>
+        </div>
+      </div>
+    </div>
+
+    <span class="caps caps--muted" style="display:block; margin:36px 0 12px;">Neutrals — warm, never cool</span>
+    <div class="swatches">
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-ink);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Miyamoto Ink</span>
+          <span class="sw__tok">--mi-ink</span>
+          <span class="sw__hex">#1D1D1B</span>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-graphite);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Graphite</span>
+          <span class="sw__tok">--mi-graphite</span>
+          <span class="sw__hex">#3F3C3B</span>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-stone);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Stone</span>
+          <span class="sw__tok">--mi-stone</span>
+          <span class="sw__hex">#D8D4CE · hairline</span>
+        </div>
+      </div>
+      <div class="sw sw--pale">
+        <div class="sw__chip" style="background: var(--mi-chalk);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Chalk</span>
+          <span class="sw__tok">--mi-chalk</span>
+          <span class="sw__hex">#ECEBEC</span>
+        </div>
+      </div>
+      <div class="sw sw--pale">
+        <div class="sw__chip" style="background: var(--mi-paper);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Paper</span>
+          <span class="sw__tok">--mi-paper</span>
+          <span class="sw__hex">#FAFAF8 · page surface</span>
+        </div>
+      </div>
+      <div class="sw sw--pale">
+        <div class="sw__chip" style="background: var(--mi-surface);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Surface</span>
+          <span class="sw__tok">--mi-surface</span>
+          <span class="sw__hex">#FFFFFF · cards only</span>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: #6E6A65;"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Meta</span>
+          <span class="sw__tok">--fg-3</span>
+          <span class="sw__hex">#6E6A65 · captions</span>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: repeating-linear-gradient(-45deg, var(--mi-stone) 0 1px, transparent 1px 6px);"></div>
+        <div class="sw__meta">
+          <span class="sw__name">Hairline</span>
+          <span class="sw__tok">--hairline</span>
+          <span class="sw__hex">0.5px · stone</span>
+        </div>
+      </div>
+    </div>
+
+    <span class="caps caps--muted" style="display:block; margin:36px 0 12px;">Dark tier</span>
+    <div class="swatches swatches--dark">
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-ink-deep);"></div>
+        <div class="sw__meta"><span class="sw__name">Ink Deep</span><span class="sw__tok">--mi-ink-deep</span><span class="sw__hex">#0A0A0A</span></div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-ink-mid);"></div>
+        <div class="sw__meta"><span class="sw__name">Ink Mid</span><span class="sw__tok">--mi-ink-mid</span><span class="sw__hex">#141414</span></div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-ink-soft);"></div>
+        <div class="sw__meta"><span class="sw__name">Ink Soft</span><span class="sw__tok">--mi-ink-soft</span><span class="sw__hex">#1A1A1A</span></div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-border-dark);"></div>
+        <div class="sw__meta"><span class="sw__name">Border Dark</span><span class="sw__tok">--mi-border-dark</span><span class="sw__hex">#2E2E2E</span></div>
+      </div>
+      <div class="sw">
+        <div class="sw__chip" style="background: var(--mi-body-dark);"></div>
+        <div class="sw__meta"><span class="sw__name">Body Dark</span><span class="sw__tok">--mi-body-dark</span><span class="sw__hex">#C9C6BF</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── TYPE ──────────────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="num">02 — Typography</span>
+      <h2>Swis721, substituted with Inter.</h2>
+      <p class="lede">Swiss-grotesque DNA. Two weights, period: Regular and Medium. Light is reserved for decorative metadata. Three sizes per page. Sentence case is the default — Title Case is off limits.</p>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Display</span>
+      <div class="display-xl dot">A quiet page is a loud page</div>
+      <div class="specs"><span>72 / 74</span><span>Medium · weight 400</span><span>tr &minus;0.02em</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Bookend</span>
+      <div class="display-sm">The discipline of the page.</div>
+      <div class="specs"><span>48 / 50</span><span>weight 400</span><span>tr &minus;0.015em</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Headline — H1</span>
+      <h1 class="dot">Foundations for editorial systems</h1>
+      <div class="specs"><span>32 / 36</span><span>weight 500</span><span>tr &minus;0.01em</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Headline — H2</span>
+      <h2>A restrained house style</h2>
+      <div class="specs"><span>28 / 31</span><span>weight 500</span><span>tr &minus;0.01em</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Subhead — H3</span>
+      <h3>Composition, rhythm and restraint</h3>
+      <div class="specs"><span>16 / 21</span><span>weight 500</span><span>tr 0</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Body</span>
+      <p style="max-width: 58ch;">The page is a quiet instrument. We compose with hairlines and white space, trust the grid, and reserve accent for a single moment — a rule, a quote, a word. Two weights carry the system: Regular for copy, Medium for emphasis.</p>
+      <div class="specs"><span>11 / 19</span><span>weight 400</span><span>tr 0</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Micro-caps</span>
+      <div class="caps">Foundations · Identity · Colors &amp; type</div>
+      <div class="specs"><span>10 / 14</span><span>weight 500</span><span>tr 0.18em</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Meta</span>
+      <div class="meta">Miyamoto International · Specimen v1.0 · Apr 2026</div>
+      <div class="specs"><span>9 / 16</span><span>weight 300</span><span>tr 0.18em</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Pull quote</span>
+      <div class="pull-quote" style="max-width: 52ch;">Restraint is not the absence of voice. It is the signature of a confident one.</div>
+      <div class="specs"><span>13 / 20</span><span>italic · weight 500</span><span>2px accent bar</span></div>
+    </div>
+
+    <div class="type-row">
+      <span class="label">Stat</span>
+      <div><span class="stat stat--accent">124</span><span class="caps caps--muted" style="margin-left:14px;">Projects, 2025</span></div>
+      <div class="specs"><span>36 / 36</span><span>weight 500</span><span>tr &minus;0.01em</span></div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── APPLICATIONS ─────────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="num">03 — In composition</span>
+      <h2>The rules, in use.</h2>
+      <p class="lede">Hairlines carry the grid. Accent appears once per composition. Paper, not white, is the page.</p>
+    </div>
+
+    <div class="apps">
+      <div class="app">
+        <span class="caps caps--accent app__eyebrow">Case study · 014</span>
+        <h3 class="dot">A civic commission on the waterfront</h3>
+        <p>The brief called for a building that would disappear into the shoreline at dusk and return, sharply, by morning. We answered with a façade of weathered steel and a plan that opens, rather than announces.</p>
+        <p>Completed in four phases across eighteen months, the project became the studio&rsquo;s first use of the revised foundations.</p>
+        <div class="stats">
+          <div><span class="stat">18</span><div class="caps">Months</div></div>
+          <div><span class="stat">4</span><div class="caps">Phases</div></div>
+          <div><span class="stat stat--accent">1</span><div class="caps">Accent, used</div></div>
+        </div>
+      </div>
+
+      <div class="app app--dark">
+        <span class="caps caps--accent app__eyebrow">Dark tier</span>
+        <h3>The page, inverted.</h3>
+        <p>Body copy sits on <code style="font-family:ui-monospace,monospace; font-size:10px;">#141414</code>, not pure black. Borders soften to <code style="font-family:ui-monospace,monospace; font-size:10px;">#2E2E2E</code>. The accent holds.</p>
+        <div class="pull-quote" style="margin-top: 20px;">The discipline of the page carries, whether the paper is warm white or near-black.</div>
+      </div>
+    </div>
+
+    <div class="pair">
+      <div>
+        <span class="caps caps--muted" style="display:block; margin-bottom:12px;">Rules &amp; hairlines</span>
+        <div style="border-top: var(--rule-1); padding-top: 12px;"><span class="caps">1 px · stone</span></div>
+        <div style="border-top: var(--hairline); padding-top: 12px; margin-top: 18px;"><span class="caps">0.5 px · hairline</span></div>
+        <div style="border-top: 2px solid var(--fg-accent); padding-top: 12px; margin-top: 18px;"><span class="caps caps--accent">2 px · accent · quote bar only</span></div>
+      </div>
+      <div>
+        <span class="caps caps--muted" style="display:block; margin-bottom:12px;">Weights in use</span>
+        <div style="font-family: var(--font-sans); font-size: 22px; letter-spacing: -0.005em;">
+          <div style="font-weight: 300; color: var(--fg-3);">Light · decorative metadata only</div>
+          <div style="font-weight: 400; margin-top: 6px;">Regular · body and headline</div>
+          <div style="font-weight: 500; margin-top: 6px;">Medium · emphasis and display</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Miyamoto International</span>
+    <span class="center">Colors &amp; Type · v1.0</span>
+    <span class="right">April 2026</span>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Miyamoto Puerto Rico</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap">
+<script src="./deck-stage.js"></script><script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#2A2826}a{color:#0091CC}a:hover{color:#007AAD}
+section{position:relative;width:1600px;height:1200px;background:#FAFAF8;font-family:Inter,sans-serif;color:#1D1D1B;overflow:hidden;box-sizing:border-box}
+h1,h2,h3{margin:0;font-weight:400}
+.eb{font-size:24px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#0091CC}
+.d{color:#0091CC}
+.h2{font-size:80px;line-height:1.02;letter-spacing:-0.028em}
+.h3{font-size:64px;line-height:1.02;letter-spacing:-0.025em}
+.lede{margin:0;font-size:30px;line-height:1.45;color:#3F3C3B}
+.meta{display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:2px solid #1D1D1B;font-size:26px;line-height:1.4}
+.meta .m{color:#6E6A65}
+.stat{display:flex;flex-direction:column;gap:12px}.stat .n{font-size:80px;letter-spacing:-0.03em;line-height:1}.stat .l{font-size:24px;line-height:1.3;color:#3F3C3B}
+.row{display:flex;justify-content:space-between;padding:20px 0;border-bottom:1px solid #D8D4CE;font-size:26px}.row span:first-child{color:#6E6A65}
+.svc{display:flex;flex-direction:column;gap:16px;border-bottom:1px solid #D8D4CE}.svc .k{font-size:24px;color:#0091CC}.svc .t{font-size:40px;letter-spacing:-0.02em}.svc .s{font-size:26px;line-height:1.4;color:#3F3C3B}
+.top{position:absolute;left:0;top:0;width:1600px;height:820px}
+.cap{position:absolute;left:96px;right:96px;top:868px;bottom:72px;display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:start}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.split>*{min-width:0;overflow:hidden}
+.split .txt{padding:96px;display:flex;flex-direction:column;justify-content:flex-end;gap:32px}
+.split .img{position:relative;height:1200px}
+.tile{display:flex;flex-direction:column;gap:14px}.tile .f{flex:1;position:relative}.tile .c{font-size:26px}
+</style></head><body>
+<deck-stage width="1600" height="1200">
+
+<section data-label="01 Cover" data-screen-label="01 Cover">
+<div style="position:absolute;left:0;top:0;width:1600px;height:760px"><image-slot id="cover" shape="rect" placeholder="Hero photo — Puerto Rico project or team"></image-slot></div>
+<div style="position:absolute;left:96px;right:96px;top:820px;bottom:80px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:48px">
+<div style="display:flex;flex-direction:column;gap:24px"><div class="eb">Miyamoto International</div><h1 style="font-size:104px;line-height:1;letter-spacing:-0.03em">Puerto Rico<span class="d">.</span></h1><div style="font-size:32px;line-height:1.3;color:#3F3C3B">Our office and major projects</div></div>
+<img src="./logo-blue.png" alt="Miyamoto" style="height:64px;width:auto;display:block">
+</div>
+</section>
+
+<section data-label="02 Who we are" data-screen-label="02 Who we are" style="padding:96px;display:flex;flex-direction:column;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:32px"><div class="eb">Who we are</div><h2 style="font-size:88px;line-height:1.02;letter-spacing:-0.028em;max-width:12ch">Save lives, impact economies<span class="d">.</span></h2><p class="lede" style="max-width:30ch">A global structural engineering and disaster management firm.</p></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;border-top:2px solid #1D1D1B;padding-top:40px">
+<div class="stat"><div class="n d">100+</div><div class="l">Global and U.S. disasters</div></div>
+<div class="stat"><div class="n">600K+</div><div class="l">Buildings assessed</div></div>
+<div class="stat"><div class="n">50K+</div><div class="l">Structures reconstructed</div></div>
+<div class="stat"><div class="n">30</div><div class="l">Locations worldwide</div></div>
+</div>
+</section>
+
+<section data-label="03 PR office" data-screen-label="03 PR office" class="split">
+<div style="padding:96px;display:flex;flex-direction:column;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:32px"><div class="eb">Our office</div><h2 class="h2">Miyamoto Puerto Rico<span class="d">.</span></h2><p class="lede">[One or two sentences on the office: when it opened, what it does, who it serves.]</p></div>
+<div style="border-top:2px solid #1D1D1B">
+<div class="row"><span>Location</span><span>[City]</span></div>
+<div class="row"><span>Established</span><span>[Year]</span></div>
+<div class="row"><span>Team</span><span>[Number] engineers + staff</span></div>
+</div>
+</div>
+<div class="img"><image-slot id="office" shape="rect" placeholder="Office or team photo"></image-slot></div>
+</section>
+
+<section data-label="04 Services" data-screen-label="04 Services" style="padding:96px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;flex-direction:column;gap:32px"><div class="eb">What we do on the island</div><h2 class="h2">Engineering for a resilient Puerto Rico<span class="d">.</span></h2></div>
+<div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;column-gap:80px;border-top:2px solid #1D1D1B">
+<div class="svc" style="padding:40px 0"><div class="k">01</div><div class="t">Structural engineering</div><div class="s">New buildings and seismic retrofit.</div></div>
+<div class="svc" style="padding:40px 0"><div class="k">02</div><div class="t">Disaster recovery</div><div class="s">Damage assessment and reconstruction.</div></div>
+<div class="svc" style="padding:40px 0;border:none"><div class="k">03</div><div class="t">High-performance design</div><div class="s">Dampers, isolation, soil-structure interaction.</div></div>
+<div class="svc" style="padding:40px 0;border:none"><div class="k">04</div><div class="t">Resilience planning</div><div class="s">Preparedness for hurricanes and earthquakes.</div></div>
+</div>
+</section>
+
+<section data-label="05 Projects divider" data-screen-label="05 Projects divider" style="background:#0091CC;color:#FFFFFF;padding:96px;display:flex;flex-direction:column;justify-content:space-between">
+<div class="eb" style="color:#FFFFFF">Section 02</div>
+<h2 style="font-size:144px;line-height:0.96;letter-spacing:-0.035em">Major projects.</h2>
+<img src="./logo-white.png" alt="Miyamoto" style="height:56px;width:auto;align-self:flex-start">
+</section>
+
+<section data-label="06 Project 1" data-screen-label="06 Project 1">
+<div class="top"><image-slot id="p1" shape="rect" placeholder="Project 1 photo"></image-slot></div>
+<div class="cap"><div style="display:flex;flex-direction:column;gap:16px"><div class="eb">Project 01</div><h3 class="h3">[Project name]</h3></div><div class="meta"><div class="m">[Location] · [Year]</div><div>[One line: what we did.]</div></div></div>
+</section>
+
+<section data-label="07 Project 2" data-screen-label="07 Project 2" class="split">
+<div class="img"><image-slot id="p2" shape="rect" placeholder="Project 2 photo"></image-slot></div>
+<div class="txt"><div class="eb">Project 02</div><h3 class="h3">[Project name]</h3><div class="meta"><div class="m">[Location] · [Year]</div><div>[One line: what we did.]</div></div></div>
+</section>
+
+<section data-label="08 Project 3" data-screen-label="08 Project 3">
+<div class="top"><image-slot id="p3" shape="rect" placeholder="Project 3 photo"></image-slot></div>
+<div class="cap"><div style="display:flex;flex-direction:column;gap:16px"><div class="eb">Project 03</div><h3 class="h3">[Project name]</h3></div><div class="meta"><div class="m">[Location] · [Year]</div><div>[One line: what we did.]</div></div></div>
+</section>
+
+<section data-label="09 Project 4" data-screen-label="09 Project 4" class="split">
+<div class="txt"><div class="eb">Project 04</div><h3 class="h3">[Project name]</h3><div class="meta"><div class="m">[Location] · [Year]</div><div>[One line: what we did.]</div></div></div>
+<div class="img"><image-slot id="p4" shape="rect" placeholder="Project 4 photo"></image-slot></div>
+</section>
+
+<section data-label="10 Project 5" data-screen-label="10 Project 5">
+<div class="top"><image-slot id="p5" shape="rect" placeholder="Project 5 photo"></image-slot></div>
+<div class="cap"><div style="display:flex;flex-direction:column;gap:16px"><div class="eb">Project 05</div><h3 class="h3">[Project name]</h3></div><div class="meta"><div class="m">[Location] · [Year]</div><div>[One line: what we did.]</div></div></div>
+</section>
+
+<section data-label="11 More projects" data-screen-label="11 More projects" style="padding:96px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h3">Across the island<span class="d">.</span></h2><div class="eb" style="white-space:nowrap;flex-shrink:0">Selected work</div></div>
+<div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:32px">
+<div class="tile"><div class="f"><image-slot id="g1" shape="rect" placeholder="Photo"></image-slot></div><div class="c">[Project name]</div></div>
+<div class="tile"><div class="f"><image-slot id="g2" shape="rect" placeholder="Photo"></image-slot></div><div class="c">[Project name]</div></div>
+<div class="tile"><div class="f"><image-slot id="g3" shape="rect" placeholder="Photo"></image-slot></div><div class="c">[Project name]</div></div>
+<div class="tile"><div class="f"><image-slot id="g4" shape="rect" placeholder="Photo"></image-slot></div><div class="c">[Project name]</div></div>
+<div class="tile"><div class="f"><image-slot id="g5" shape="rect" placeholder="Photo"></image-slot></div><div class="c">[Project name]</div></div>
+<div class="tile"><div class="f"><image-slot id="g6" shape="rect" placeholder="Photo"></image-slot></div><div class="c">[Project name]</div></div>
+</div>
+</section>
+
+<section data-label="12 Closing" data-screen-label="12 Closing">
+<div style="position:absolute;inset:0"><image-slot id="closing" shape="rect" placeholder="Closing photo — community or completed project"></image-slot></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:420px;background:#FAFAF8;padding:80px 96px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between">
+<h2 style="font-size:96px;line-height:1;letter-spacing:-0.03em">make the world safer<span class="d">.</span></h2>
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:26px;color:#3F3C3B"><span>miyamotointernational.com</span><img src="./logo-blue.png" alt="Miyamoto" style="height:52px;width:auto"></div>
+</div>
+</section>
+
+</deck-stage>
+</body></html>

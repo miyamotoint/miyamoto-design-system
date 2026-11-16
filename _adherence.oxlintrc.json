@@ -1,0 +1,170 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "pr-deck/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Inter))/i]",
+        "message": "Font not provided by the design system. Available: Inter."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--bg-dark",
+      "--bg-page",
+      "--bg-surface",
+      "--fg-1",
+      "--fg-2",
+      "--fg-3",
+      "--fg-accent",
+      "--font-body",
+      "--font-sans",
+      "--gap-1",
+      "--gap-2",
+      "--gap-3",
+      "--gap-4",
+      "--gap-5",
+      "--hairline",
+      "--hairline-dark",
+      "--lh-body",
+      "--lh-head",
+      "--lh-prose",
+      "--mi-blue",
+      "--mi-blue-ink",
+      "--mi-blue-wash",
+      "--mi-body-dark",
+      "--mi-border-dark",
+      "--mi-chalk",
+      "--mi-graphite",
+      "--mi-ink",
+      "--mi-ink-deep",
+      "--mi-ink-mid",
+      "--mi-ink-soft",
+      "--mi-paper",
+      "--mi-stone",
+      "--mi-surface",
+      "--pad-page",
+      "--quote-bar-w",
+      "--radius-0",
+      "--radius-sm",
+      "--rule-1",
+      "--t-body",
+      "--t-body-lg",
+      "--t-caps",
+      "--t-display",
+      "--t-head",
+      "--t-head-lg",
+      "--t-meta",
+      "--t-micro",
+      "--t-subhead",
+      "--tr-caps",
+      "--tr-caps-lg",
+      "--tr-default",
+      "--tr-tight",
+      "--w-light",
+      "--w-medium",
+      "--w-regular"
+    ],
+    "tokenKinds": {
+      "--mi-blue": "color",
+      "--mi-blue-ink": "color",
+      "--mi-blue-wash": "color",
+      "--mi-ink": "color",
+      "--mi-graphite": "color",
+      "--mi-stone": "color",
+      "--mi-chalk": "color",
+      "--mi-paper": "color",
+      "--mi-surface": "color",
+      "--mi-ink-deep": "color",
+      "--mi-ink-mid": "color",
+      "--mi-ink-soft": "color",
+      "--mi-border-dark": "color",
+      "--mi-body-dark": "color",
+      "--fg-1": "color",
+      "--fg-2": "color",
+      "--fg-3": "color",
+      "--fg-accent": "color",
+      "--bg-page": "color",
+      "--bg-surface": "color",
+      "--bg-dark": "color",
+      "--hairline": "color",
+      "--hairline-dark": "color",
+      "--rule-1": "color",
+      "--font-sans": "font",
+      "--font-body": "font",
+      "--t-micro": "spacing",
+      "--t-caps": "spacing",
+      "--t-body": "spacing",
+      "--t-body-lg": "spacing",
+      "--t-meta": "spacing",
+      "--t-subhead": "spacing",
+      "--t-head": "spacing",
+      "--t-head-lg": "spacing",
+      "--t-display": "spacing",
+      "--w-light": "font",
+      "--w-regular": "font",
+      "--w-medium": "font",
+      "--tr-tight": "spacing",
+      "--tr-default": "font",
+      "--tr-caps": "spacing",
+      "--tr-caps-lg": "spacing",
+      "--lh-head": "font",
+      "--lh-body": "font",
+      "--lh-prose": "font",
+      "--gap-1": "spacing",
+      "--gap-2": "spacing",
+      "--gap-3": "spacing",
+      "--gap-4": "spacing",
+      "--gap-5": "spacing",
+      "--pad-page": "spacing",
+      "--quote-bar-w": "spacing",
+      "--radius-0": "radius",
+      "--radius-sm": "radius"
+    },
+    "fontFamilies": [
+      "Inter"
+    ]
+  }
+}

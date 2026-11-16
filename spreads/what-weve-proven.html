@@ -1,0 +1,487 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="What We've Already Proven — Spread" subtitle="Two spreads, quieter composition" viewport="1760x2300" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Miyamoto — What we've already proven</title>
+<meta name="viewport" content="width=1760" />
+<link rel="stylesheet" href="../tokens.css" />
+<style>
+  /* ── Stage ──────────────────────────────────────────────── */
+  html, body { background: #2A2826; }
+  body {
+    margin: 0;
+    padding: 48px 20px 80px;
+    font-family: var(--font-body);
+    display: grid;
+    justify-items: center;
+    gap: 56px;
+  }
+
+  /* ── Spread shell ───────────────────────────────────────── */
+  .spread {
+    width: 1700px;
+    height: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--mi-paper);
+    position: relative;
+    box-shadow:
+      0 30px 60px -20px rgba(0,0,0,0.55),
+      0 10px 20px -10px rgba(0,0,0,0.35);
+  }
+  .spread::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 56px;
+    transform: translateX(-50%);
+    background: linear-gradient(to right,
+      transparent 0%,
+      rgba(0,0,0,0.03) 30%,
+      rgba(0,0,0,0.085) 50%,
+      rgba(0,0,0,0.03) 70%,
+      transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .page {
+    position: relative;
+    padding: 80px 88px;
+    display: grid;
+  }
+  .page--L { padding-right: 72px; }
+  .page--R { padding-left: 72px; }
+
+  /* ── Folio (running head) ──────────────────────────────── */
+  .folio {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--t-micro);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .folio .wordmark {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    font-size: 13px;
+    color: var(--mi-blue);
+  }
+  .folio .wordmark::after { content: "."; }
+  .folio .num { font-variant-numeric: tabular-nums; }
+
+  /* ── Shared accents ────────────────────────────────────── */
+  .dot-accent { color: var(--mi-blue); }
+  h1, h2, h3 { margin: 0; font-weight: var(--w-regular); }
+
+  /* ═══════════════════════════════════════════════════════════
+     SPREAD 1 — COVER OPENER
+     ═══════════════════════════════════════════════════════════ */
+
+  /* Left: chapter mark + title, lots of air */
+  .cover-L {
+    grid-template-rows: auto 1fr auto;
+  }
+  .cover-L .chapter {
+    margin-top: 64px;
+    display: grid;
+    gap: 14px;
+  }
+  .cover-L .chapter .caps { color: var(--mi-blue); }
+  .cover-L .chapter__num {
+    font-family: var(--font-sans);
+    font-size: 96px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--mi-blue);
+    font-weight: var(--w-regular);
+  }
+  .cover-L h1 {
+    margin-top: auto;
+    font-size: 104px;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    max-width: 11ch;
+    font-weight: var(--w-regular);
+  }
+  .cover-L h1 em { font-style: normal; color: var(--mi-blue); }
+
+  .cover-L__foot {
+    margin-top: 64px;
+    padding-top: 16px;
+    border-top: var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-sans);
+    font-size: var(--t-micro);
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+
+  /* Right: one full-bleed image + tagline */
+  .cover-R {
+    padding: 0;
+    grid-template-rows: 1fr auto;
+  }
+  .cover-R .plate {
+    position: relative;
+    background: #3F3C3B;
+    overflow: hidden;
+  }
+  .cover-R .plate svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .cover-R .plate__caption {
+    position: absolute;
+    left: 40px; bottom: 40px;
+    color: #F5F3EE;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+  .cover-R .plate__caption .accent { color: var(--mi-blue); }
+  .cover-R .plate__placeholder {
+    position: absolute;
+    top: 24px; right: 24px;
+    color: rgba(245,243,238,0.55);
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+  }
+
+  .cover-R .tagline {
+    background: var(--mi-paper);
+    padding: 56px 88px 72px;
+    display: grid;
+    gap: 18px;
+  }
+  .cover-R .tagline .caps { color: var(--mi-blue); }
+  .cover-R .tagline__line {
+    font-family: var(--font-sans);
+    font-size: 48px;
+    font-weight: var(--w-regular);
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .cover-R .tagline__line b { font-weight: var(--w-medium); }
+
+  /* ═══════════════════════════════════════════════════════════
+     SPREAD 2 — EVIDENCE
+     ═══════════════════════════════════════════════════════════ */
+
+  .ev-L { grid-template-rows: auto 1fr auto; }
+  .ev-L__head {
+    margin-top: 64px;
+    display: grid;
+    gap: 12px;
+  }
+  .ev-L__head .caps { color: var(--mi-blue); }
+  .ev-L__head h2 {
+    font-size: 48px;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    max-width: 14ch;
+  }
+  .ev-L__head h2 em { font-style: normal; color: var(--mi-blue); }
+
+  .bignums {
+    align-self: center;
+    margin-top: 72px;
+    display: grid;
+    gap: 56px;
+  }
+  .bignum {
+    display: grid;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mi-ink);
+    max-width: 18ch;
+  }
+  .bignum .n {
+    font-family: var(--font-sans);
+    font-size: 120px;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    color: var(--fg-1);
+    font-weight: var(--w-regular);
+  }
+  .bignum:first-child .n { color: var(--mi-blue); }
+  .bignum .lbl {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-2);
+  }
+
+  .ev-L__foot {
+    padding-top: 16px;
+    border-top: var(--hairline);
+    max-width: 40ch;
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--fg-2);
+  }
+
+  /* Right page — three calm dossiers */
+  .ev-R { grid-template-rows: auto 1fr; }
+  .ev-R__head {
+    margin-top: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 16px;
+    border-bottom: var(--hairline);
+  }
+  .ev-R__head .caps { color: var(--mi-blue); }
+
+  .dossiers {
+    align-self: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .dossier {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 40px;
+    align-items: baseline;
+    padding: 40px 0;
+    border-bottom: var(--hairline);
+  }
+  .dossier:last-child { border-bottom: none; }
+  .dossier h3 {
+    font-family: var(--font-sans);
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-weight: var(--w-regular);
+  }
+  .dossier__body {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    max-width: 34ch;
+  }
+  .dossier__body strong { font-weight: var(--w-medium); }
+
+  .dossier__stat {
+    text-align: right;
+    display: grid;
+    gap: 8px;
+  }
+  .dossier__stat .n {
+    font-family: var(--font-sans);
+    font-size: 32px;
+    font-weight: var(--w-regular);
+    letter-spacing: -0.02em;
+    color: var(--mi-blue);
+    line-height: 1;
+  }
+  .dossier__stat .n .sub {
+    color: var(--fg-1);
+    font-size: 0.6em;
+    display: block;
+    margin-top: 6px;
+    letter-spacing: -0.01em;
+  }
+  .dossier__stat .lbl {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-3);
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ══════════════════════ SPREAD 1 ══════════════════════ -->
+  <section class="spread" data-screen-label="Spread 1 — Cover">
+
+    <article class="page page--L cover-L" data-screen-label="p.14 · Cover">
+      <div class="folio">
+        <span class="wordmark">miyamoto</span>
+        <span>Capability Brief</span>
+        <span class="num">14</span>
+      </div>
+
+      <div class="chapter">
+        <span class="caps">Chapter 02 — Proof</span>
+        <span class="chapter__num">02</span>
+      </div>
+
+      <h1>What we've already <em>proven<span class="dot-accent">.</span></em></h1>
+
+      <div class="cover-L__foot">
+        <span>Miyamoto International</span>
+        <span>Spring 2026</span>
+      </div>
+    </article>
+
+    <article class="page cover-R" data-screen-label="p.15 · Hero photo · tagline">
+      <div class="plate">
+        <svg viewBox="0 0 800 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5A544D"/>
+              <stop offset="1" stop-color="#3F3C3B"/>
+            </linearGradient>
+            <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2A2826"/>
+              <stop offset="1" stop-color="#1D1D1B"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="700" fill="url(#sky)"/>
+          <!-- distant silhouettes -->
+          <g fill="#2A2826" opacity="0.85">
+            <polygon points="0,440 120,380 220,420 340,360 460,400 580,340 700,380 800,340 800,500 0,500"/>
+          </g>
+          <!-- mid buildings (rebuilt) -->
+          <g fill="#1D1D1B">
+            <rect x="80"  y="320" width="90"  height="180"/>
+            <rect x="200" y="280" width="110" height="220"/>
+            <rect x="340" y="340" width="72"  height="160"/>
+            <rect x="440" y="260" width="130" height="240"/>
+            <rect x="600" y="300" width="96"  height="200"/>
+          </g>
+          <g stroke="#FAFAF8" stroke-width="0.7" opacity="0.35">
+            <line x1="200" y1="310" x2="310" y2="310"/>
+            <line x1="200" y1="345" x2="310" y2="345"/>
+            <line x1="200" y1="380" x2="310" y2="380"/>
+            <line x1="200" y1="415" x2="310" y2="415"/>
+            <line x1="200" y1="450" x2="310" y2="450"/>
+            <line x1="440" y1="285" x2="570" y2="285"/>
+            <line x1="440" y1="320" x2="570" y2="320"/>
+            <line x1="440" y1="355" x2="570" y2="355"/>
+            <line x1="440" y1="390" x2="570" y2="390"/>
+            <line x1="440" y1="425" x2="570" y2="425"/>
+            <line x1="440" y1="460" x2="570" y2="460"/>
+          </g>
+          <!-- foreground -->
+          <rect x="0" y="500" width="800" height="200" fill="url(#ground)"/>
+          <!-- single figure -->
+          <g fill="#D8D4CE">
+            <rect x="370" y="470" width="6" height="30"/>
+            <circle cx="373" cy="464" r="5"/>
+          </g>
+          <!-- accent: one point of blue (a marker light) -->
+          <circle cx="510" cy="270" r="4" fill="#0091CC"/>
+        </svg>
+
+        <span class="plate__placeholder">Photography · placeholder</span>
+        <div class="plate__caption">
+          <div>Field delivery <span class="accent">—</span> reconstructed to U.S. standards</div>
+          <div style="opacity:0.65">Plate 02.1</div>
+        </div>
+      </div>
+
+      <div class="tagline">
+        <span class="caps">Tagline</span>
+        <div class="tagline__line">We execute. Fast. <b>At scale<span class="dot-accent">.</span></b></div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ══════════════════════ SPREAD 2 ══════════════════════ -->
+  <section class="spread" data-screen-label="Spread 2 — Evidence">
+
+    <article class="page page--L ev-L" data-screen-label="p.16 · Global track record">
+      <div class="folio">
+        <span class="wordmark">miyamoto</span>
+        <span>The record</span>
+        <span class="num">16</span>
+      </div>
+
+      <div class="ev-L__head">
+        <span class="caps">Global track record</span>
+        <h2>A global <em>track record<span class="dot-accent">.</span></em></h2>
+      </div>
+
+      <div class="bignums">
+        <div class="bignum">
+          <div class="n">700,000</div>
+          <div class="lbl">Structures assessed</div>
+        </div>
+        <div class="bignum">
+          <div class="n">50,000</div>
+          <div class="lbl">Repaired or reconstructed</div>
+        </div>
+      </div>
+
+      <p class="ev-L__foot">
+        Across Haiti, Türkiye, Morocco, Afghanistan, Ukraine, Nepal, Ecuador, Indonesia — and dozens more. Stabilizing communities with long-term impact.
+      </p>
+    </article>
+
+    <article class="page page--R ev-R" data-screen-label="p.17 · Country dossiers">
+      <div class="folio">
+        <span>In the field</span>
+        <span class="wordmark">miyamoto</span>
+        <span class="num">17</span>
+      </div>
+
+      <div class="ev-R__head">
+        <span class="caps">In the field</span>
+        <span class="caps" style="color:var(--fg-3);">Three theatres</span>
+      </div>
+
+      <div class="dossiers">
+
+        <article class="dossier">
+          <h3>Haiti<span class="dot-accent">.</span></h3>
+          <p class="dossier__body">
+            Reached <strong>one million people</strong> through Konbit, a trusted grass-roots organization. Recognized as one of the most trusted U.S. engineering companies in the region.
+          </p>
+          <div class="dossier__stat">
+            <div class="n">1M</div>
+            <div class="lbl">People reached<br/>via Konbit</div>
+          </div>
+        </article>
+
+        <article class="dossier">
+          <h3>Ukraine<span class="dot-accent">.</span></h3>
+          <p class="dossier__body">
+            One of the <strong>largest engineering operations in an active conflict zone</strong> — delivering to U.S. technical systems and engineering standards.
+          </p>
+          <div class="dossier__stat">
+            <div class="n">20,000<span class="sub">of 30,000 assessed</span></div>
+            <div class="lbl">Houses repaired<br/>or reconstructed</div>
+          </div>
+        </article>
+
+        <article class="dossier">
+          <h3>Gaza / MENA<span class="dot-accent">.</span></h3>
+          <p class="dossier__body">
+            Proven ability to operate in complex, high-risk environments with <strong>neutrality, precision</strong>, and the professionalism expected of a U.S. private-sector partner.
+          </p>
+          <div class="dossier__stat">
+            <div class="n">—</div>
+            <div class="lbl">High-risk<br/>delivery</div>
+          </div>
+        </article>
+
+      </div>
+    </article>
+
+  </section>
+
+</body>
+</html>
